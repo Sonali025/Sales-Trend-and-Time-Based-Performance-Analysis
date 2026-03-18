@@ -181,15 +181,12 @@ st.markdown(f"""
 def load_data():
     here    = os.path.dirname(os.path.abspath(__file__))
     cleaned = os.path.join(here, "data", "cleaned_data.csv")
-    raws    = [os.path.join(here,"data","raw_data.csv"),
-               "/mnt/user-data/uploads/coffee_sales.csv"]
+    raw     = os.path.join(here, "data", "raw_data.csv")
+
     if os.path.exists(cleaned):
         df = pd.read_csv(cleaned, parse_dates=["transaction_date"])
-    else:
-        for p in raws:
-            if os.path.exists(p): df = pd.read_csv(p); break
-        else:
-            st.error("Data file not found."); st.stop()
+    elif os.path.exists(raw):
+        df = pd.read_csv(raw)
         START = datetime(2025,1,1)
         df    = df.sort_values("transaction_id").reset_index(drop=True)
         offs  = (df["transaction_id"]-df["transaction_id"].min()) / \
@@ -209,6 +206,9 @@ def load_data():
             if 17<=h<=21: return "Evening"
             return "Late Night"
         df["time_bucket"] = df["hour"].apply(tb)
+    else:
+        st.error("❌ Data file not found. Please add cleaned_data.csv to the data/ folder.")
+        st.stop()
     return df
 
 df_full      = load_data()

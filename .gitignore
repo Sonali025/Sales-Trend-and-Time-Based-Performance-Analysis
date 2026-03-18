@@ -11,7 +11,7 @@ env/
 
 # Data files — too large for GitHub
 data/raw_data.csv
-data/cleaned_data.csv
+# data/cleaned_data.csv
 data/cleaned_data.xlsx
 
 # Generated visuals — reproducible from pipeline
