@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+
+# Virtual Environment — NEVER commit venv
+venv/
+.venv/
+env/
+
+# Data files — too large for GitHub
+data/raw_data.csv
+data/cleaned_data.csv
+data/cleaned_data.xlsx
+
+# Generated visuals — reproducible from pipeline
+visuals/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Secrets
+.env
+
+# Logs
+*.log

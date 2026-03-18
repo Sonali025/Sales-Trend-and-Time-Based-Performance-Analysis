@@ -1,0 +1,27 @@
+
+╔══════════════════════════════════════════════════════════════════════╗
+║          AUTOMATED INSIGHTS — Afficionado Coffee Roasters           ║
+╠══════════════════════════════════════════════════════════════════════╣
+║ KPIs                                                                 ║
+║  Total Revenue:        $  653,691.89                         ║
+║  Total Transactions:        149,116                            ║
+║  Average Order Value:  $        4.38                          ║
+╠══════════════════════════════════════════════════════════════════════╣
+║ PRODUCT                                                              ║
+║  Top Revenue Category: Coffee                                                                  ║
+╠══════════════════════════════════════════════════════════════════════╣
+║ STORE                                                                ║
+║  Best Performing Store: Astoria                                                             ║
+╠══════════════════════════════════════════════════════════════════════╣
+║ TEMPORAL                                                             ║
+║  Best Day of Week:   Thursday                                                                     ║
+║  Slowest Day:        Tuesday                                                                     ║
+║  Peak Hour:          10:00 – 11:00                     ║
+║  Weekend Revenue Lift vs Weekday: -0.1%                 ║
+╠══════════════════════════════════════════════════════════════════════╣
+║ SCHEDULING RECOMMENDATIONS                                           ║
+║  • Staff up 30 min before 10:00 daily                          ║
+║  • Add extra staff on Thursdays                                     ║
+║  • Reduce staff on Tuesdays — consider promotions to boost demand║
+║  • Weekend staffing should be ~-0% higher than weekday  ║
+╚══════════════════════════════════════════════════════════════════════╝
