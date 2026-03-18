@@ -273,8 +273,8 @@ is_qty  = (metric == "Quantity")
 M_COL   = "transaction_qty"  if is_qty else "revenue"
 M_LABEL = "Quantity (Units)" if is_qty else "Revenue ($)"
 M_SHORT = "Quantity"         if is_qty else "Revenue"
-M_FMT   = (lambda v: f"{int(v):,} units") if is_qty else (lambda v: f"${v:,.0f}")
-M_FMT_S = (lambda v: f"{v:.2f}")          if is_qty else (lambda v: f"${v:.2f}")
+M_FMT   = (lambda v: f"{int(v):,} units" if pd.notna(v) else "") if is_qty else (lambda v: f"${v:,.0f}" if pd.notna(v) else "")
+M_FMT_S = (lambda v: f"{v:.2f}" if pd.notna(v) else "")          if is_qty else (lambda v: f"${v:.2f}" if pd.notna(v) else "")
 # Accent colour: warm amber for qty, gold for revenue
 M_COLOR = AMBER if is_qty else GOLD
 M_FILL  = AMBER_FILL if is_qty else "rgba(199,161,122,0.18)"
@@ -462,7 +462,8 @@ elif "Day-of-Week" in page:
     dow = df.groupby("day_name").agg(
         avg_m=(M_COL,"mean"), total_m=(M_COL,"sum"), txns=("transaction_id","count")
     ).reindex(DAY_ORDER).reset_index()
-    wknd_c = [M_COLOR if d in ["Saturday","Sunday"] else ESPRESSO for d in DAY_ORDER]
+    dow = dow.dropna(subset=["avg_m"])   # remove deselected days — prevents NaN labels
+    wknd_c = [M_COLOR if d in ["Saturday","Sunday"] else ESPRESSO for d in dow["day_name"]]
 
     col1, col2 = st.columns(2)
     with col1:
