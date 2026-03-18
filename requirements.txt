@@ -6,4 +6,4 @@ plotly
 streamlit
 scikit-learn
 openpyxl
-mysql-connector-python
+pillow
